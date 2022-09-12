@@ -85,7 +85,7 @@ function nuevo_pedido(){
     
 }
 
-let registro = prompt("Bienvendido a la tienda oficial de C.A. Aguada. Usted esta registrado Si o No?")
+let registro = prompt("Bienvendido a la tienda oficial de C.A. Aguada. Usted esta registrado? Si o No?")
 
     if (registro == "SI" || registro == "si" || registro == "Si"){
 
@@ -103,6 +103,7 @@ let registro = prompt("Bienvendido a la tienda oficial de C.A. Aguada. Usted est
         console.log("no esta registrado")
         
         }    
+        
         nuevo_pedido()
 
     }else if(registro == "NO" || registro == "no" || registro == "No") {
