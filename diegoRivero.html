@@ -1,67 +1,121 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> TIENDA OFICIAL C.A. AGUADA</title>
-  
+    <link rel="stylesheet" href="min.css" >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
 </head>
 <body>
-    <h1 style="text-align: center; color:red; font-style: italic; ">Bienvenido a la tienda oficial del Club Atlético Aguada</h1>
-    <center><img src="imagenes/Aguada.png" width="400"/> </center>
+    <h1 class="titulo">Bienvenido a la tienda oficial del Club Atlético Aguada</h1>
+        <center><img src="imagenes/Aguada.png" width=400px/> </center>
     <hr>
     <br>
     <h2 style="text-align: center; color: green ">En esta tienda encontrarás todos los articulos del club más popular</h2>
     <br>
-    <h3 style="text-align: center;">Artículos : </h3>
-    <center><table style="text-align:center">
-        <tr><img  src="imagenes/camiseta 1.jpg" width="210"/>          </tr>
-        <tr><img  src="imagenes/camiseta 2.jpg" width="170"/>          </tr>
-        <tr><img  src="imagenes/camiseta 3.jpg" width="200"/>          </tr>
-    </table>
-    <table>
-        <tr><img src="imagenes/short 1.jpg" width="210"></tr>
-        <tr><img src="imagenes/gorro.jpg" width="200"></tr>
-        <tr><img src="imagenes/short 2.jpg" width="225"></tr>
+
+    <center><div class="card2">
+        <form id="nuevo_usuario" ></form>
+            <h2>REGISTRARSE</h2>
+            <br>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" checked/>
+            <br>
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" name="apellido"/>   
+            <br>
+            <label for="doc_id ">Documento Identidad</label>
+            <input type="number" id="doc_id"  name="doc_id"></input> 
+            <br>
+            <label for="domicilio">Direccion</label>
+            <input type="text" id="domicilio"  name="domicilio"></input> 
+            <br>
+            <label for="contraseña">Contraseña</label>
+            <input type="password" id="password" name="password"  />   
+            <br>
+            <button type="button" id="registrarse">REGISTRARSE</button>
+            <button type="reset">RESETEAR</button>
+            
+            <div id="alerta-registro">
+            
+        </div>
+        <br>
+            <br>
+    </form>
+    </div>
+
+    <div class="card2">
+      
+        <form id="log_usuario" >
+            <h2>LOGEARSE</h2>
+            <br>
+            <label for="usuario">Usuario</label>
+            <input type="text" id="usuario" name="usuario"  />
+            <br>
+            <label for="contraseña">Contraseña</label>
+            <input type="password" id="contraseña" name="contraseña"  />   
+            <br>
+         
+           
+            <button id="login">LOGEASE</button>
+            <div id="error">
+    
+            </div>
+        </form>
+    </center>
+    </div>
+        <div id="mensaje">
+
+        </div>
+
+    
+
+    <br>
+    <br>
+    <br>
+    <br>
+   
+    <hr>
+    <center><h1>PRODUCTOS</h1></center>
+   <main class="contenedor"> 
+    <div class="contenedor-compra">
         
-        
-    </table></center>
+            
+    </div>
+
+   
+    <hr>
+</div>
+<div class="container" id="carrito">
+  <h2>Carrito</h2>
+  <table class="table table-dark">
+    <thead>
+      <tr>             
+        <td></td>
+        <td>PRODUCTO</td>
+        <td>CANTIDAD</td>
+        <td>TALLE</td>
+        <td>PPRECIO</td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+    
+    </tbody>
+    <tbody id="tbody2">
+    
+    </tbody>
+  </table>
+
+</div>
+</div>
+    </main>
+   
 
 
-
-
-
-    <h3 style="text-align: center;">Precios : </h3>
-    <center><table style= "border: 1px solid black"">
-        <tr>
-            <th>PRODUCTO</th>
-            <th>PRECIO</th>
-        </tr>
-        <tr>
-        <td>Camiseta Verde </td>
-        <td>$ 3500</td>
-        </tr>
-        <tr>
-        <td>Camiseta Blanca </td>
-        <td>$ 3250</td>
-        </tr>
-        <tr>
-        <td>Camiseta Running</td>
-        <td>$ 2500</td>
-        </tr>
-        <tr>
-        <td>Pantalon Verde</td>
-        <td>$ 2500</td>
-        </tr>
-        <tr>
-        <td>Pantalon Blanco</td>
-        <td>$ 2250</td>
-        </tr>
-        <tr>
-        <td>Gorro</td>
-        <td>$ 1000</td>
-        </tr>
-    </table> </center> 
-    <center> <button type="button"><img src="imagenes/Aguada.png" width="50
-        "/>COMPRAR</button></center>
     <script src="diegoRivero.js"></script>
     
 </body>

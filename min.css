@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.contenedor{
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+.container.img{
+    height: auto;
+}
+.contenedor-compra{
+    margin-top: 1rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    
+}
+.card {
+    
+    margin-bottom: 2rem;
+    text-align: center;
+   
+    border: solid 1px green;
+    border-radius: 10px;
+    color: red;
+    overflow: hidden;
+    outline: 1px solid red;
+   
+}
+.card2 {
+    
+    margin-bottom: 2rem;
+    text-align: center;
+    width: 45%;
+    border: solid 1px green;
+    border-radius: 10px;
+    color: red;
+    overflow: hidden;
+    outline: 1px solid red;
+   
+}
+.card img {
+    width: 100%;
+}
+.imagen-productos {
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+}
+ 
+button{
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+    border-radius:  10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.btn-comprar {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+    border-radius:  10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.btn-comprar.btn-comprar:hover{
+background-color: green;
+
+}
+.btn-borrar {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+    border-radius:  10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: red;
+}
+.btn-borrar.btn-borrar:hover{
+background-color: red;
+
+}
+.btn-compra {
+    color: green;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+    border-radius:  10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.titulo {
+    text-align: center;
+    color:red; 
+    font-style: italic;
+}
+
+.listado-pedido{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat (1, 1fr);
+}
+
+.h2{
+    color: green;
+    text-align: center;
+    margin-bottom: 1 rem;
+}
+
+.table{
+   width: 100%;
+   border-collapse: collapse;
+}
+th, td{
+    border: solid 1px black;
+}
+
+th{
+    background-color: red;
+    color: white;
+    text-align: left;
+}
+
+tr:hover{
+    background-color: #aaa;
+    cursor: pointer;
+}
