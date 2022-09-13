@@ -153,7 +153,7 @@ function agregar_carrito(id){
    fila_carrito.innerHTML += `<td><img class="imagen-productos" src="${compra_productos.img}"></img></td>
                               <td>${compra_productos.name}</td>
                               <td>${compra_productos.cantidad}</td>
-                              <td><select name="talle"><option value="value1">S</option><option value="value2" selected>M</option><option value="value#" selected>L</option><option value="value4" selected>XL</option></select></td>
+                              <td><select name="talle"><option value="value0" selected>Talle</option><option value="value1">${talle[0]}</option><option value="value2" >${talle[1]}</option><option value="value#" >${talle[2]}</option><option value="value4" >${talle[3]}</option></select></td>
                               <td> $ ${compra_productos.precio}</td>
                               <td><button class="btn-borrar">Borrar</button></td>`;
 
