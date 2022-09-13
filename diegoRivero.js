@@ -9,6 +9,7 @@
     
 ]
 */
+
 const form_registro = document.getElementById("registrarse");
 const registro_nombre = document.getElementById("nombre");
 const registro_apellido = document.getElementById("apellido");
@@ -43,7 +44,7 @@ form_registro.addEventListener("click", (e) => {
     let new_user = new Usuario(registro_nombre.value, registro_apellido.value, registro_doc_id.value , registro_direccion.value, registro_pass.value );
         
     registro_usuario.push(new_user);
-    console.log(registro_usuario);  
+    //console.log(registro_usuario);  
     alerta_registro.innerHTML = `<p> Bienvenido ${registro_nombre.value} , su usuario es ${doc_id.value}</p>`;
     
     }else{
@@ -69,6 +70,11 @@ form_login.addEventListener("submit", (e) => {
         }
     }
 })
+
+/*let nombre_usuario = document.getElementById("nombre_usuario");
+let user = localStorage.getItem("usuario");
+nombre_usuario.innerText = user;*/
+
 const productos = [
     { id: 1, name : "Camiseta Principal", precio: 3500, img : 'imagenes/camiseta1-3.png', cantidad: 1 },
     { id: 2, name : "Camiseta Alternativa", precio: 3250, img : 'imagenes/camiseta2-3.png', cantidad: 1},
@@ -80,15 +86,8 @@ const productos = [
     { id: 8, name : "Camiseta Blanca", precio: 3250, img : 'imagenes/camiseta 4-2.png', cantidad: 1},
 ]
 
-/*let talles = [
-    {id:1 , name: "S"},
-    {id:2 , name: "M"},
-    {id:3 , name: "L"},
-    {id:4 , name: "XL"}
-  
+let talles = ["S", "M", "L", "XL"]
 
-]
-*/
 const contenedor_productos = document.querySelector(".contenedor-compra");
 let tabla = document.getElementById("tbody");
 let tabla_total = document.getElementById("tbody2");
@@ -116,8 +115,10 @@ function mostrar_productos(){
         btn_compra.classList.add("btn-comprar");
         btn_compra.addEventListener("click", function(){
         agregar_carrito(producto.id);
+        ver_carrito();
         })
-        
+       
+       
         div_productos.appendChild(imagen_producto);
         div_productos.appendChild(titulo_producto);
         div_productos.appendChild(precio_producto);
@@ -128,6 +129,15 @@ function mostrar_productos(){
     });
 }
 
+function ver_carrito(){
+    let carrito = document.getElementById("carrito");
+    if(carrito.style.display != "none"){
+        carrito.style.display != "none"
+    }else{
+        carrito.style.display != "flex"
+    }
+
+}
 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -153,7 +163,7 @@ function agregar_carrito(id){
    fila_carrito.innerHTML += `<td><img class="imagen-productos" src="${compra_productos.img}"></img></td>
                               <td>${compra_productos.name}</td>
                               <td>${compra_productos.cantidad}</td>
-                              <td><select name="talle"><option value="value1">S</option><option value="value2" selected>M</option><option value="value#" selected>L</option><option value="value4" selected>XL</option></select></td>
+                              <td><select name="talle"><option value="value0" selected>Talle</option><option value="value1" >${talles[0]}</option><option value="value2" >${talles[1]}</option><option value="value#" >${talles[2]}</option><option value="value4">${talles[3]}</option></select></td>
                               <td> $ ${compra_productos.precio}</td>
                               <td><button class="btn-borrar">Borrar</button></td>`;
 
@@ -180,7 +190,7 @@ function agregar_carrito(id){
 
 
         const btn_borra_fila = document.querySelectorAll(".btn-borrar");
-        console.log(btn_borra_fila.target);
+        //console.log(btn_borra_fila.target);
         for (let boton of btn_borra_fila){
             boton.addEventListener("click", borrar_fila)
             
@@ -204,7 +214,7 @@ function ver_pedido(){
         fila_carrito.innerHTML += `<td><img class="imagen-productos" src="${producto.img}"></img></td>
                                <td>${producto.name}</td>
                                <td>${producto.cantidad}</td>
-                               <td><select name="talle"><option value="value1">S</option><option value="value2" selected>M</option><option value="value#" selected>L</option><option value="value4" selected>XL</option></select></td>
+                               <td><select name="talle"><option value="value0" selected>Talle</option><option value="value1" >${talles[0]}</option><option value="value2" >${talles[1]}</option><option value="value#" >${talles[2]}</option><option value="value4">${talles[3]}</option></select></td>
                                <td> $ ${producto.precio}</td>
                                <td><button class="btn-borrar">Borrar</button></td>`;
 
@@ -251,3 +261,5 @@ function compra_final(e){
         tabla_total.append(mensaje_final);
         localStorage.clear();
 }
+
+
