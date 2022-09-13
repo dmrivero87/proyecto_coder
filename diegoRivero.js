@@ -216,7 +216,7 @@ function ver_pedido(){
                                <td>${producto.cantidad}</td>
                                <td><select name="talle"><option value="value0" selected>Talle</option><option value="value1" >${talles[0]}</option><option value="value2" >${talles[1]}</option><option value="value#" >${talles[2]}</option><option value="value4">${talles[3]}</option></select></td>
                                <td> $ ${producto.precio}</td>
-                               <td><button class="btn-borrar">Borrar</button></td>`;
+                               <td><button class="btn-borrar-fila">Borrar</button></td>`;
 
     
     
@@ -233,7 +233,11 @@ function ver_pedido(){
         let btn_fin = document.getElementById("btn-fin")
         btn_fin.addEventListener("click", compra_final)
         
-    
+        const btn_borra_fila = document.querySelectorAll(".btn-borrar-fila");
+        //console.log(btn_borra_fila);
+        for (let boton of btn_borra_fila){
+            boton.addEventListener("click", borrar_fila)
+        }
         
     })
 }
