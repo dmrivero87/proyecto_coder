@@ -106,21 +106,25 @@ function mostrar_productos(){
         const titulo_producto = document.createElement("h2");
         titulo_producto.textContent = producto.name;
         titulo_producto.classList.add("titulo-producto");
-
+        const talle_producto = document.createElement("select");
+        talle_producto.id = "seleccion-talle"
+        talle_producto.innerHTML = `<select onchange="cambio_talle()" name="t"><option value="S" >S</option><option value="M" >M</option><option value="L" >L</option><option value="XL">XL</option></select>`
+        
         const precio_producto = document.createElement("h3");
-        precio_producto.textContent = producto.precio
+        precio_producto.innerHTML = `<h3> $ ${producto.precio}`
 
         const btn_compra = document.createElement("button");
         btn_compra.textContent = "Agregar al pedido";
         btn_compra.classList.add("btn-comprar");
         btn_compra.addEventListener("click", function(){
         agregar_carrito(producto.id);
-        ver_carrito();
+       
         })
        
        
         div_productos.appendChild(imagen_producto);
         div_productos.appendChild(titulo_producto);
+        div_productos.appendChild(talle_producto);
         div_productos.appendChild(precio_producto);
         div_productos.appendChild(btn_compra);
 
@@ -128,7 +132,14 @@ function mostrar_productos(){
         
     });
 }
-
+function cambio_talle(){
+    let talle_seleccion = document.getElementById("seleccion-talle").value;
+    
+    
+    console.log(talle_seleccion);
+ 
+}
+document.addEventListener("change", cambio_talle)
 function ver_carrito(){
     let carrito = document.getElementById("carrito");
     if(carrito.style.display != "none"){
@@ -163,7 +174,7 @@ function agregar_carrito(id){
    fila_carrito.innerHTML += `<td><img class="imagen-productos" src="${compra_productos.img}"></img></td>
                               <td>${compra_productos.name}</td>
                               <td>${compra_productos.cantidad}</td>
-                              <td><select name="talle"><option value="value0" selected>Talle</option><option value="value1" >${talles[0]}</option><option value="value2" >${talles[1]}</option><option value="value#" >${talles[2]}</option><option value="value4">${talles[3]}</option></select></td>
+                              <td><select onchange="cambio_talle()" name="t"><option value="S" >S</option><option value="M" >M</option><option value="L" >L</option><option value="XL">XL</option></select></td>
                               <td> $ ${compra_productos.precio}</td>
                               <td><button class="btn-borrar">Borrar</button></td>`;
 
