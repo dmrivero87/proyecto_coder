@@ -1,14 +1,40 @@
-/*let usuarios_registrados = [
-    {nombre: "Juana" , apellido: "Perez" , doc_id: 13382450 , direccion: "Fernandez Crespo 2154"},
-    {nombre: "Diego" , apellido: "Rivero" , doc_id: 45579872 , direccion: "Yatay 1428"},
-    {nombre: "Ignacio" , apellido: "Caballero" , doc_id: 43214560 , direccion: "Enrique Brito 987"},
-    {nombre: "Federico" , apellido: "Baricevich" , doc_id: 39857415 , direccion: "Tacuarembo 7413"},
-    {nombre: "Alejandra" , apellido: "Valentin" , doc_id: 38974168 , direccion: "Av. Italia 4563"},
-    {nombre: "Fernando" , apellido: "Rodriguez" , doc_id: 19874451 , direccion: "Ayacucho 6402"},
-    {nombre: "Felipe" , apellido: "Peluffo" , doc_id: 54789638 , direccion: "Cañas 12"},
-    
-]
-*/
+let options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+};
+
+function success(pos) {
+  let crd = pos.coords;
+  let ver_clima = document.getElementById("clima");
+
+  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${crd.latitude}&lon=${crd.longitude}&appid=7b934f7bb113c4ac4e2883bb5c2d303d&lang=es&units=metric`)
+      .then(response => response.json())
+      .then(data =>{
+       // console.log(data);
+       let icon =data.weather[0].icon
+       console.log(icon);
+        ver_clima.innerHTML = `<span> Ciudad: ${data.name}</span>
+                               <span> Temperatura: ${data.main.temp}</span>
+                               <img src='icons/${icon}.png'</img>`
+      }
+     )
+
+/*
+
+  console.log('Your current position is:');
+  console.log('Latitude : ' + crd.latitude);
+  console.log('Longitude: ' + crd.longitude);
+  console.log('More or less ' + crd.accuracy + ' meters.');*/
+};
+
+function error(err) {
+  console.warn('ERROR(' + err.code + '): ' + err.message);
+};
+
+navigator.geolocation.getCurrentPosition(success, error, options);
+
+
 
 const form_registro = document.getElementById("registrarse");
 const registro_nombre = document.getElementById("nombre");
@@ -185,8 +211,9 @@ function mostrar_productos() {
 
     div_productos.appendChild(imagen_producto);
     div_productos.appendChild(titulo_producto);
-    div_productos.appendChild(talle_producto);
     div_productos.appendChild(precio_producto);
+    div_productos.appendChild(talle_producto);
+   
     div_productos.appendChild(btn_compra);
 
     contenedor_productos.appendChild(div_productos);
@@ -196,7 +223,7 @@ function mostrar_productos() {
 
 
 //cambio de talle
-document.addEventListener("change", cambio_talle)
+//document.addEventListener("change", cambio_talle)
 function ver_carrito() {
   let carrito = document.getElementById("carrito");
   if (carrito.style.display != "none") {
